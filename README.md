@@ -21,22 +21,5 @@ Bevy предоставляет отличный фундамент, но PolyMa
 
 Работать с низкоуровневыми шейдерными данными напрямую.
 
-💻 Пример интеграции
-Rust
-use bevy::prelude::*;
-use polymath_3d::prelude::*;
 
-fn main() {
-    App::new()
-        .add_plugins(DefaultPlugins)
-        .add_plugin(PolyMathPlugin) // Твой кастомный плагин
-        .add_system(apply_math_transform)
-        .run();
-}
 
-fn apply_math_transform(mut query: Query<&mut Transform>) {
-    for mut transform in query.iter_mut() {
-        // Использование функций PolyMath для изменения трансформации
-        PolyMath::apply_complex_rotation(&mut transform, 45.0);
-    }
-}
